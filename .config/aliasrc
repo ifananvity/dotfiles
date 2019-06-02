@@ -1,10 +1,13 @@
 #!/bin/sh
 
-alias p="sudo pacman" \
+alias ~="cd ~" \
 	..="cd ../" \
 	...="cd ../../" \
 	....="cd ../../../" \
+	p="sudo pacman" \
 	g="git" \
+	gs="git status" \
+	gc="git commit -m" \
 	ls="ls -lht --color=auto --group-directories-first" \
 	lsa="ls -alht --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
