@@ -13,6 +13,5 @@ alias grep="grep --color=auto"
 
 # start on boot
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    tint2 &
     exec startx
 fi
