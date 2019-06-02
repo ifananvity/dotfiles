@@ -1,13 +1,17 @@
 #!/bin/sh
 
 alias p="sudo pacman" \
+	..="cd ../" \
+	...="cd ../../" \
+	....="cd ../../../" \
 	g="git" \
 	ls="ls -lht --color=auto --group-directories-first" \
 	lsa="ls -alht --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	mo="bash $HOME/.local/bin/mountall.sh" \
-	om="bash $HOME/.local/bin/safelyremove.sh"
+	om="bash $HOME/.local/bin/safelyremove.sh" \
+	dot="bash $HOME/.local/bin/updatedotfiles.sh"
 
 # to be considered (from https://github.com/LukeSmithxyz/voidrice)
 # e="$EDITOR" \
