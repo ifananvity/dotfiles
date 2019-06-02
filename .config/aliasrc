@@ -1,10 +1,10 @@
 #!/bin/sh
 
-alias ls="ls -lht --color=auto --group-directories-first" \
+alias p="sudo pacman" \
+	g="git" \
+	ls="ls -lht --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-	p="sudo pacman" \
-	g="git" \
 	mo="bash $HOME/.local/bin/mountall.sh" \
 	om="bash $HOME/.local/bin/safelyremove.sh"
 
