@@ -1,17 +1,11 @@
-#
-# ~/.bashrc
-#
+#!/bin/bash
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# cd into directory merely by typing the directory name
+shopt -s autocd
+
 PS1='[\u@\h \W]\$ '
 
-# aliases
-alias ls="ls -lht --color=auto"
-alias grep="grep --color=auto"
-
-# start on boot
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    exec startx
-fi
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
