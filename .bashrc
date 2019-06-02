@@ -7,3 +7,5 @@
 shopt -s autocd
 
 PS1='[\u@\h \W]\$ '
+
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
