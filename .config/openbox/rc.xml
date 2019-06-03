@@ -277,16 +277,6 @@
 				<direction>left</direction>
 			</action>
 		</keybind>
-		<keybind key="W-S-Up">
-			<action name="DirectionalCycleWindows">
-				<direction>up</direction>
-			</action>
-		</keybind>
-		<keybind key="W-S-Down">
-			<action name="DirectionalCycleWindows">
-				<direction>down</direction>
-			</action>
-		</keybind>
 
 		<!-- Keybindings for running applications -->
 		<keybind key="W-e">
