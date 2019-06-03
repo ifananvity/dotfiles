@@ -4,6 +4,7 @@
 - change indentation to a proper tabs instead of 2 space
 - change number of desktop to 2
 - add name tag names to desktop
+- modify keyboard bindings
 -->
 
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -205,15 +206,33 @@
 		<keybind key="A-F4">
 			<action name="Close"/>
 		</keybind>
-		<keybind key="A-Escape">
-			<action name="Lower"/>
-			<action name="FocusToBottom"/>
-			<action name="Unfocus"/>
+		<keybind key="A-F11">
+			<action name="ToggleFullscreen"/>
 		</keybind>
 		<keybind key="A-space">
 			<action name="ShowMenu">
 				<menu>client-menu</menu>
 			</action>
+		</keybind>
+		<keybind key="W-Left">
+			<action name="MoveResizeTo">
+				<x>+0</x>
+				<y>+0</y>
+				<width>50%</width>
+				<height>100%></height>
+			</action>
+		</keybind>
+		<keybind key="W-Down">
+			<action name="Unmaximize"/>
+		</keybind>
+		<keybind key="W-Up">
+			<action name="Maximize"/>
+		</keybind>
+		<keybind key="W-Down">
+			<action name="Unmaximize"/>
+		</keybind>
+		<keybind key="W-S-Down">
+			<action name="Iconify"/>
 		</keybind>
 
 		<!-- Keybindings for window switching -->
@@ -288,10 +307,10 @@
 				<command>urxvt</command>
 			</action>
 		</keybind>
-		<keybind key="A-space">
-			<action name="ShowMenu">
-				<menu>client-list-menu</menu>
-			</action>
+
+		<!-- Reconfigure Openbox -->
+		<keybind key="W-F12">
+			<action name="Reconfigure"/>
 		</keybind>
 	</keyboard>
 
