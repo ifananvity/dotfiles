@@ -3,6 +3,8 @@
 
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export TERMINAL="urxvt"
+export FILE_MANAGER="pcmanfm"
 
 [ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
 

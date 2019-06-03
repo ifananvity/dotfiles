@@ -106,7 +106,7 @@
 	<desktops>
 		<!-- this stuff is only used at startup, pagers allow you to change them during a session these are default values to use when other ones are not already set by other applications, or saved in your session use obconf if you want to change these
 		without having to log out and back in -->
-		<number>1</number>
+		<number>2</number>
 		<firstdesk>1</firstdesk>
 		<names>
 			<name>Main</name>
@@ -164,78 +164,107 @@
 		<chainQuitKey>C-g</chainQuitKey>
 
 		<!-- Keybindings for desktop switching -->
-		<keybind key="C-A-Left">
+		<keybind key="C-A-Left">	<!-- Move to left desktop -->
 			<action name="GoToDesktop">
 				<to>left</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="C-A-Right">
+		<keybind key="C-A-Right">	<!-- Move to right desktop -->
 			<action name="GoToDesktop">
 				<to>right</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="S-A-Left">
+		<keybind key="S-A-Left">	<!-- Move to left desktop WITH focused window -->
 			<action name="SendToDesktop">
 				<to>left</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="S-A-Right">
+		<keybind key="S-A-Right">	<!-- Move to right desktop WITH focused window -->
 			<action name="SendToDesktop">
 				<to>right</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="W-F1">
+		<keybind key="W-F1">		<!-- Move to desktop 1 -->
 			<action name="GoToDesktop">
 				<to>1</to>
 			</action>
 		</keybind>
-		<keybind key="W-F2">
+		<keybind key="W-F2">		<!-- Move to desktop 2 -->
 			<action name="GoToDesktop">
 				<to>2</to>
 			</action>
 		</keybind>
-		<keybind key="W-d">
+		<keybind key="W-d">			<!-- Toggle show desktop -->
 			<action name="ToggleShowDesktop"/>
 		</keybind>
 
 		<!-- Keybindings for windows -->
-		<keybind key="A-F4">
+		<keybind key="A-F4">		<!-- Close window -->
 			<action name="Close"/>
 		</keybind>
-		<keybind key="A-F11">
+		<keybind key="C-q">			<!-- ALSO Closes window -->
+			<action name="Close"/>
+		</keybind>
+		<keybind key="A-F11">		<!-- Fullscreen -->
 			<action name="ToggleFullscreen"/>
 		</keybind>
-		<keybind key="A-space">
+		<keybind key="A-space">		<!-- Show window menu -->
 			<action name="ShowMenu">
 				<menu>client-menu</menu>
 			</action>
 		</keybind>
-		<keybind key="W-Left">
-			<action name="Unmaximize"/>
-			<action name="MoveResizeTo">
-				<x>+0</x>
-				<y>+0</y>
-				<width>50%</width>
-				<height>100%></height>
+		<keybind key="W-Left">		<!-- View split on left -->
+			<action name="If">
+				<maximized>yes</maximized>
+				<then>
+					<action name="Unmaximize"/>
+					<action name="MoveResizeTo">
+						<x>+0</x>
+						<y>+0</y>
+						<width>50%</width>
+						<height>100%></height>
+					</action>
+				</then>
+				<else>
+					<action name="MoveResizeTo">
+						<x>+0</x>
+						<y>+0</y>
+						<width>50%</width>
+						<height>100%></height>
+					</action>
+				</else>
 			</action>
 		</keybind>
-		<keybind key="W-Right">
-			<action name="Unmaximize"/>
-			<action name="MoveResizeTo">
-				<x>-0</x>
-				<y>+0</y>
-				<width>50%</width>
-				<height>100%></height>
+		<keybind key="W-Right">		<!-- View split on right -->
+			<action name="If">
+				<maximized>yes</maximized>
+				<then>
+					<action name="Unmaximize"/>
+					<action name="MoveResizeTo">
+						<x>-0</x>
+						<y>+0</y>
+						<width>50%</width>
+						<height>100%></height>
+					</action>
+				</then>
+				<else>
+					<action name="MoveResizeTo">
+						<x>-0</x>
+						<y>+0</y>
+						<width>50%</width>
+						<height>100%></height>
+					</action>
+				</else>
 			</action>
 		</keybind>
-		<keybind key="W-Up">
+		<keybind key="W-Up">		<!-- Maximize window -->
 			<action name="Maximize"/>
 		</keybind>
-		<keybind key="W-Down">
+		<keybind key="W-Down">		<!-- Unmaximize window NEED ATTENTION -->
 			<action name="If">
 				<query target="focus">
 					<maximized>yes</maximized>
@@ -244,32 +273,23 @@
 					<action name="Unmaximize"/>
 				</then>
 				<else>
-					<action name="If">
-						<query target="focus">
-							<maximizedvertical>yes<maximizedvertical>
-						</query>
-						<then>
-							<action name="MoveResizeTo">
-								<x>center</x>
-								<y>center</y>
-								<width>80%</width>
-								<height>80%></height>
-							</action>
-						</then>
-						<else>
-							<!-- do nothing -->
-						</else>
+					<action name="MoveResizeTo">
+						<x>center</x>
+						<y>center</y>
+						<width>75%</width>
+						<height>75%</height>
 					</action>
 				</else>
 			</action>
 		</keybind>
-		<keybind key="W-S-Down">
+		<keybind key="W-S-Down">	<!-- Minimize window -->
 			<action name="Iconify"/>
 		</keybind>
 
 		<!-- Keybindings for window switching -->
-		<keybind key="A-Tab">
+		<keybind key="A-Tab">		<!-- Cycle focus to next window -->
 			<action name="NextWindow">
+				<dialog>icons</dialog>
 				<finalactions>
 					<action name="Focus"/>
 					<action name="Raise"/>
@@ -277,19 +297,9 @@
 				</finalactions>
 			</action>
 		</keybind>
-		<keybind key="A-S-Tab">
+		<keybind key="A-S-Tab">		<!-- Cycle focus to previous window -->
 			<action name="PreviousWindow">
-				<finalactions>
-					<action name="Focus"/>
-					<action name="Raise"/>
-					<action name="Unshade"/>
-				</finalactions>
-			</action>
-		</keybind>
-		<keybind key="C-A-Tab">
-			<action name="NextWindow">
-				<panels>yes</panels>
-				<desktop>yes</desktop>
+				<dialog>icons</dialog>
 				<finalactions>
 					<action name="Focus"/>
 					<action name="Raise"/>
@@ -299,19 +309,19 @@
 		</keybind>
 
 		<!-- Keybindings for window switching with the arrow keys -->
-		<keybind key="W-S-Right">
+		<keybind key="W-S-Right">	<!-- Cycle focus to window on the right -->
 			<action name="DirectionalCycleWindows">
 				<direction>right</direction>
 			</action>
 		</keybind>
-		<keybind key="W-S-Left">
+		<keybind key="W-S-Left">	<!-- Cycle focus to window on the left -->
 			<action name="DirectionalCycleWindows">
 				<direction>left</direction>
 			</action>
 		</keybind>
 
 		<!-- Keybindings for running applications -->
-		<keybind key="W-e">
+		<keybind key="W-e">			<!-- Open file manager-->
 			<action name="Execute">
 				<startupnotify>
 					<enabled>true</enabled>
@@ -320,10 +330,10 @@
 				<command>pcmanfm</command>
 			</action>
 		</keybind>
-		<keybind key="W-t">
+		<keybind key="W-t">			<!-- Open terminal -->
 			<action name="Execute">
 				<startupnotify>
-					<enabled>true</enabled>
+					<enabled>no</enabled>
 					<name>Terminal</name>
 				</startupnotify>
 				<command>urxvt</command>
@@ -413,7 +423,7 @@
 				<action name="ToggleMaximize"/>
 			</mousebind>
 
-			<mousebind button="Up" action="Click">
+			<mousebind button="Up" action="Click">		<!-- Shade on scroll up -->
 				<action name="if">
 					<shaded>no</shaded>
 					<then>
@@ -424,7 +434,7 @@
 					</then>
 				</action>
 			</mousebind>
-			<mousebind button="Down" action="Click">
+			<mousebind button="Down" action="Click">	<!-- Unshade on scroll down -->
 				<action name="if">
 					<shaded>yes</shaded>
 					<then>
@@ -715,20 +725,102 @@
 	</menu>
 
 	<applications>
-		<!-- # this is an example with comments through out. use these to make your # own rules, but without the comments of course. # you may use one or more of the name/class/role/title/type rules to specify # windows to match <application name="the
-		window's _OB_APP_NAME property (see obxprop)" class="the window's _OB_APP_CLASS property (see obxprop)" groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)" groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)" role="the
-		window's _OB_APP_ROLE property (see obxprop)" title="the window's _OB_APP_TITLE property (see obxprop)" type="the window's _OB_APP_TYPE property (see obxprob).. (if unspecified, then it is 'dialog' for child windows)"> # you may set only one of
-		name/class/role/title/type, or you may use more # than one together to restrict your matches. # the name, class, role, and title use simple wildcard matching such as those # used by a shell. you can use * to match any characters and ? to match # any
-		single character. # the type is one of: normal, dialog, splash, utility, menu, toolbar, dock, # or desktop # when multiple rules match a window, they will all be applied, in the # order that they appear in this list # each rule element can be left
-		out or set to 'default' to specify to not # change that attribute of the window <decor>yes</decor> # enable or disable window decorations <shade>no</shade> # make the window shaded when it appears, or not <position force="no"> # the position is only
-		used if both an x and y coordinate are provided # (and not set to 'default') # when force is "yes", then the window will be placed here even if it # says you want it placed elsewhere. this is to override buggy # applications who refuse to behave
-		<x>center</x> # a number like 50, or 'center' to center on screen. use a negative number # to start from the right (or bottom for <y>), ie -50 is 50 pixels from # the right edge (or bottom). use 'default' to specify using value # provided by the
-		application, or chosen by openbox, instead. <y>200</y> <monitor>1</monitor> # specifies the monitor in a xinerama setup. # 1 is the first head, or 'mouse' for wherever the mouse is </position> <size> # the size to make the window. <width>20</width> #
-		a number like 20, or 'default' to use the size given by the application. # you can use fractions such as 1/2 or percentages such as 75% in which # case the value is relative to the size of the monitor that the window # appears on.
-		<height>30%</height> </size> <focus>yes</focus> # if the window should try be given focus when it appears. if this is set # to yes it doesn't guarantee the window will be given focus. some # restrictions may apply, but Openbox will try to
-		<desktop>1</desktop> # 1 is the first desktop, 'all' for all desktops <layer>normal</layer> # 'above', 'normal', or 'below' <iconic>no</iconic> # make the window iconified when it appears, or not <skip_pager>no</skip_pager> # asks to not be shown in
-		pagers <skip_taskbar>no</skip_taskbar> # asks to not be shown in taskbars. window cycling actions will also # skip past such windows <fullscreen>yes</fullscreen> # make the window in fullscreen mode when it appears <maximized>true</maximized> #
-		'Horizontal', 'Vertical' or boolean (yes/no) </application> # end of the example -->
+		<!--
+		<application class="*">
+			<decor>no</decor>
+		</application>
+		-->
+
+		<!--
+		# this is an example with comments through out. use these to make your
+		# own rules, but without the comments of course.
+		# you may use one or more of the name/class/role/title/type rules to specify
+		# windows to match
+
+		<application name="the window's _OB_APP_NAME property (see obxprop)"
+		            class="the window's _OB_APP_CLASS property (see obxprop)"
+		        groupname="the window's _OB_APP_GROUP_NAME property (see obxprop)"
+		       groupclass="the window's _OB_APP_GROUP_CLASS property (see obxprop)"
+		             role="the window's _OB_APP_ROLE property (see obxprop)"
+		            title="the window's _OB_APP_TITLE property (see obxprop)"
+		             type="the window's _OB_APP_TYPE property (see obxprob)..
+		                    (if unspecified, then it is 'dialog' for child windows)">
+		# you may set only one of name/class/role/title/type, or you may use more
+		# than one together to restrict your matches.
+
+		# the name, class, role, and title use simple wildcard matching such as those
+		# used by a shell. you can use * to match any characters and ? to match
+		# any single character.
+
+		# the type is one of: normal, dialog, splash, utility, menu, toolbar, dock, or desktop
+
+		# when multiple rules match a window, they will all be applied, in the
+		# order that they appear in this list
+
+			# each rule element can be left out or set to 'default' to specify to not
+			# change that attribute of the window
+
+			<decor>yes</decor>
+			# enable or disable window decorations
+
+			<shade>no</shade>
+			# make the window shaded when it appears, or not
+
+			<position force="no">
+			    # the position is only used if both an x and y coordinate are provided
+			    # (and not set to 'default')
+			    # when force is "yes", then the window will be placed here even if it
+			    # says you want it placed elsewhere.  this is to override buggy
+			    # applications who refuse to behave
+			    <x>center</x>
+			    # a number like 50, or 'center' to center on screen. use a negative number
+			    # to start from the right (or bottom for <y>), ie -50 is 50 pixels from
+			    # the right edge (or bottom). use 'default' to specify using value
+			    # provided by the application, or chosen by openbox, instead.
+			    <y>200</y>
+			    <monitor>1</monitor>
+			    # specifies the monitor in a xinerama setup.
+			    # 1 is the first head, or 'mouse' for wherever the mouse is
+			</position>
+
+			<size>
+			    # the size to make the window.
+			    <width>20</width>
+			    # a number like 20, or 'default' to use the size given by the application.
+			    # you can use fractions such as 1/2 or percentages such as 75% in which
+			    # case the value is relative to the size of the monitor that the window
+			    # appears on.
+			    <height>30%</height>
+			</size>
+
+			<focus>yes</focus>
+			# if the window should try be given focus when it appears. if this is set
+			# to yes it doesn't guarantee the window will be given focus. some
+			# restrictions may apply, but Openbox will try to
+
+			<desktop>1</desktop>
+			# 1 is the first desktop, 'all' for all desktops
+
+			<layer>normal</layer>
+			# 'above', 'normal', or 'below'
+
+			<iconic>no</iconic>
+			# make the window iconified when it appears, or not
+
+			<skip_pager>no</skip_pager>
+			# asks to not be shown in pagers
+
+			<skip_taskbar>no</skip_taskbar>
+			# asks to not be shown in taskbars. window cycling actions will also
+			# skip past such windows
+
+			<fullscreen>yes</fullscreen>
+			# make the window in fullscreen mode when it appears
+
+			<maximized>true</maximized>
+			# 'Horizontal', 'Vertical' or boolean (yes/no)
+		</application>
+		-->
 	</applications>
 
 </openbox_config>
