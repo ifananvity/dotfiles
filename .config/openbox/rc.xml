@@ -106,7 +106,7 @@
 	<desktops>
 		<!-- this stuff is only used at startup, pagers allow you to change them during a session these are default values to use when other ones are not already set by other applications, or saved in your session use obconf if you want to change these
 		without having to log out and back in -->
-		<number>2</number>
+		<number>1</number>
 		<firstdesk>1</firstdesk>
 		<names>
 			<name>Main</name>
@@ -215,6 +215,7 @@
 			</action>
 		</keybind>
 		<keybind key="W-Left">
+			<action name="Unmaximize"/>
 			<action name="MoveResizeTo">
 				<x>+0</x>
 				<y>+0</y>
@@ -223,6 +224,7 @@
 			</action>
 		</keybind>
 		<keybind key="W-Right">
+			<action name="Unmaximize"/>
 			<action name="MoveResizeTo">
 				<x>-0</x>
 				<y>+0</y>
@@ -230,18 +232,35 @@
 				<height>100%></height>
 			</action>
 		</keybind>
-		<keybind key="W-Down">
-			<action name="Unmaximize"/>
-		</keybind>
 		<keybind key="W-Up">
 			<action name="Maximize"/>
 		</keybind>
 		<keybind key="W-Down">
-			<action name="MoveResizeTo">
-				<x>center</x>
-				<y>center</y>
-				<width>80%</width>
-				<height>80%></height>
+			<action name="If">
+				<query target="focus">
+					<maximized>yes</maximized>
+				</query>
+				<then>
+					<action name="Unmaximize"/>
+				</then>
+				<else>
+					<action name="If">
+						<query target="focus">
+							<maximizedvertical>yes<maximizedvertical>
+						</query>
+						<then>
+							<action name="MoveResizeTo">
+								<x>center</x>
+								<y>center</y>
+								<width>80%</width>
+								<height>80%></height>
+							</action>
+						</then>
+						<else>
+							<!-- do nothing -->
+						</else>
+					</action>
+				</else>
 			</action>
 		</keybind>
 		<keybind key="W-S-Down">
