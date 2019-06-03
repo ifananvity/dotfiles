@@ -175,18 +175,6 @@
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="C-A-Up">
-			<action name="GoToDesktop">
-				<to>up</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="C-A-Down">
-			<action name="GoToDesktop">
-				<to>down</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
 		<keybind key="S-A-Left">
 			<action name="SendToDesktop">
 				<to>left</to>
@@ -196,18 +184,6 @@
 		<keybind key="S-A-Right">
 			<action name="SendToDesktop">
 				<to>right</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="S-A-Up">
-			<action name="SendToDesktop">
-				<to>up</to>
-				<wrap>no</wrap>
-			</action>
-		</keybind>
-		<keybind key="S-A-Down">
-			<action name="SendToDesktop">
-				<to>down</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
@@ -298,9 +274,18 @@
 			<action name="Execute">
 				<startupnotify>
 					<enabled>true</enabled>
-					<name>Konqueror</name>
+					<name>PCManFM</name>
 				</startupnotify>
-				<command>kfmclient openProfile filemanagement</command>
+				<command>pcmanfm</command>
+			</action>
+		</keybind>
+		<keybind key="W-t">
+			<action name="Execute">
+				<startupnotify>
+					<enabled>true</enabled>
+					<name>Terminal</name>
+				</startupnotify>
+				<command>urxvt</command>
 			</action>
 		</keybind>
 	</keyboard>
