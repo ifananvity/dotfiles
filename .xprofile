@@ -1,5 +1,5 @@
 #!/bin/sh
 # autostart programs
 
-urxvt
 tint2 &
+urxvt &
