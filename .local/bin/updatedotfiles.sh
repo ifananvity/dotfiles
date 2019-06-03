@@ -1,6 +1,7 @@
 #!/bin/sh
 
-find $HOME -mindepth 1 -delete
+#find $HOME -mindepth 1 -delete
+[ -d $HOME/.git ] && rm -rf $HOME/.git
 git clone -q https://github.com/ifananvity/dotfiles.git
 mv -f dotfiles/.* -t $HOME > /dev/null 2>&1
 rm -rf dotfiles/
