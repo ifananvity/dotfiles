@@ -288,6 +288,11 @@
 				<command>urxvt</command>
 			</action>
 		</keybind>
+		<keybind key="A-space">
+			<action name="ShowMenu">
+				<menu>client-list-menu</menu>
+			</action>
+		</keybind>
 	</keyboard>
 
 	<mouse>
