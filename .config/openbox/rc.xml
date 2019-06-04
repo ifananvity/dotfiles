@@ -725,12 +725,14 @@
 	</menu>
 
 	<applications>
+		<!--
 		<application class="*">
 			<size>
 				<width>75%</width>
 				<height>75%</height>
 			</size>
 		</application>
+		-->
 
 		<!--
 		# this is an example with comments through out. use these to make your
