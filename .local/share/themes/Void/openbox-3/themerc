@@ -1,5 +1,5 @@
 ### Void Openbox Theme
-# By github.com/ifananvity, MIT License
+# https://github.com/ifananvity, MIT License
 
 ###### WINDOW GEOMETRY ######
 padding.width: 4
@@ -116,7 +116,7 @@ menu.items.disabled.text.color: #262626
 menu.items.active.bg: Solid Flat
 menu.items.active.bg.color: #262626
 menu.items.active.text.color: #cccccc
-menu.items.active.disabled.text.color: #b00020
+menu.items.active.disabled.text.color: #262626
 
 menu.title.bg: Solid Flat
 menu.title.bg.color: #090909

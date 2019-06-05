@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "Fetching mirrorlist"
+
+curl -Os https://raw.githubusercontent.com/ifananvity/arch-installer/master/lib/rankmirrors.sh
+
+# fetch and ranks a live mirrorlist
+curl -s "https://www.archlinux.org/mirrorlist/?country=ID&country=SG&protocol=https&protocol=http&ip_version=4" | \
+sed -e "s/^#Server/Server/g; /^#/d" | \
+bash rankmirrors.sh -n 6 - > /etc/pacman.d/mirrorlist
+
+rm -f rankmirrors.sh
