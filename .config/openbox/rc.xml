@@ -206,7 +206,7 @@
 		<keybind key="A-F4">		<!-- Close window -->
 			<action name="Close"/>
 		</keybind>
-		<keybind key="C-q">			<!-- ALSO Closes window -->
+		<keybind key="A-q">			<!-- ALSO Closes window -->
 			<action name="Close"/>
 		</keybind>
 		<keybind key="A-F11">		<!-- Fullscreen -->
