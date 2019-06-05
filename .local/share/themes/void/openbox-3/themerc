@@ -1,25 +1,28 @@
-###### WINDOW GEOMETRY ######
-padding.width: 3
-padding.height: 4
-border.width: 1
+### Void Openbox Theme
+# By github.com/ifananvity, MIT License
 
-window.client.padding.width: 0
+###### WINDOW GEOMETRY ######
+padding.width: 4
+padding.height: 4
+border.width: 0
+
+window.client.padding.width: 2
 window.client.padding.height: 0
-window.handle.width: 0
+window.handle.width: 2
 
 ###### MENU GEOMETRY ######
-menu.border.width: 1
+menu.border.width: 4
 menu.overlap.x: 0
 menu.overlap.y: 0
 
 ###### BORDER COLORS ######
-window.active.border.color: #202020
-window.inactive.border.color: #202020
+window.active.border.color: #090909
+window.inactive.border.color: #090909
 
-window.active.client.color: #202020
-window.inactive.client.color: #202020
+window.active.client.color: #090909
+window.inactive.client.color: #090909
 
-menu.border.color: #202020
+menu.border.color: #090909
 
 ###### TEXT SHADOWS ######
 window.active.label.text.font: shadow=y:shadowtint=70:shadowoffset=1
@@ -34,101 +37,101 @@ window.label.text.justify: Center
 ###### ACTIVE WINDOW ######
 # title bar
 window.active.title.bg: Solid Flat
-window.active.title.bg.color: #000000
+window.active.title.bg.color: #090909
 
 window.active.label.bg: Parentrelative
-window.active.label.text.color: #eaeaea
+window.active.label.text.color: #cccccc
 
 # handle
 window.active.handle.bg: Solid Flat
-window.active.handle.bg.color: #202020
+window.active.handle.bg.color: #090909
 window.active.grip.bg: Parentrelative
 
 # buttons
 window.active.button.unpressed.bg: Parentrelative
-window.active.button.unpressed.image.color: #eaeaea
+window.active.button.unpressed.image.color: #cccccc
 
 window.active.button.hover.bg: Parentrelative
-window.active.button.hover.image.color: #b00020
+window.active.button.hover.image.color: #ffffff
 
 window.active.button.pressed.bg: Parentrelative
-window.active.button.pressed.image.color: #b00020
+window.active.button.pressed.image.color: #ffffff
 
 window.active.button.disabled.bg: Parentrelative
-window.active.button.disabled.image.color: #202020
+window.active.button.disabled.image.color: #262626
 
 window.active.button.toggled.unpressed.bg: Parentrelative
-window.active.button.toggled.unpressed.image.color: #eaeaea
+window.active.button.toggled.unpressed.image.color: #cccccc
 
 window.active.button.toggled.hover.bg: Parentrelative
-window.active.button.toggled.hover.image.color: #b00020
+window.active.button.toggled.hover.image.color: #ffffff
 
 window.active.button.toggled.pressed.bg: Parentrelative
-window.active.button.toggled.pressed.image.color: #b00020
+window.active.button.toggled.pressed.image.color: #ffffff
 
 ###### INACTIVE WINDOWS ######
 # title bar
 window.inactive.title.bg: Solid Flat
-window.inactive.title.bg.color: #000000
+window.inactive.title.bg.color: #090909
 
 window.inactive.label.bg: Parentrelative
-window.inactive.label.text.color: #eaeaea
+window.inactive.label.text.color: #262626
 
 # handle
 window.inactive.handle.bg: Solid Flat
-window.inactive.handle.bg.color: #202020
+window.inactive.handle.bg.color: #090909
 window.inactive.grip.bg: Parentrelative
 
 # buttons
 window.inactive.button.unpressed.bg: Parentrelative
-window.inactive.button.unpressed.image.color: #000000
+window.inactive.button.unpressed.image.color: #262626
 
 window.inactive.button.hover.bg: Parentrelative
-window.inactive.button.hover.image.color: #b00020
+window.inactive.button.hover.image.color: #ffffff
 
 window.inactive.button.pressed.bg: Parentrelative
-window.inactive.button.pressed.image.color: #b00020
+window.inactive.button.pressed.image.color: #ffffff
 
 window.inactive.button.disabled.bg: Parentrelative
-window.inactive.button.disabled.image.color: #000000
+window.inactive.button.disabled.image.color: #262626
 
 window.inactive.button.toggled.bg: Parentrelative
-window.inactive.button.toggled.image.color: #000000
+window.inactive.button.toggled.image.color: #262626
 
 window.inactive.button.toggled.unpressed.bg: Parentrelative
-window.inactive.button.toggled.unpressed.image.color: #000000
+window.inactive.button.toggled.unpressed.image.color: #262626
 
 window.inactive.button.toggled.hover.bg: Parentrelative
-window.inactive.button.toggled.hover.image.color: #b00020
+window.inactive.button.toggled.hover.image.color: #ffffff
 
 window.inactive.button.toggled.pressed.bg: Parentrelative
-window.inactive.button.pressed.toggled.image.color: #b00020
+window.inactive.button.pressed.toggled.image.color: #ffffff
 
 ###### MENUS #####
 menu.items.bg: Solid Flat
-menu.items.bg.color: #000000
-menu.items.text.color: #eaeaea
-menu.items.disabled.text.color: #b00020
+menu.items.bg.color: #090909
+menu.items.text.color: #cccccc
+menu.items.disabled.text.color: #262626
 
 menu.items.active.bg: Solid Flat
-menu.items.active.bg.color: #202020
-menu.items.active.text.color: #ffffff
+menu.items.active.bg.color: #262626
+menu.items.active.text.color: #cccccc
 menu.items.active.disabled.text.color: #b00020
 
 menu.title.bg: Solid Flat
-menu.title.bg.color: #000000
-menu.title.text.color: #eaeaea
+menu.title.bg.color: #090909
+menu.title.text.color: #cccccc
 menu.title.text.justify: Center
 
-menu.separator.color: #202020
+menu.separator.color: #262626
 menu.separator.width: 1
 menu.separator.padding.width: 0
-menu.separator.padding.height: 0
+menu.separator.padding.height: 4
 
 ###### ON SCREEN DIALOG ######
 osd.bg: Solid Flat
-osd.bg.color: #b00020
+osd.bg.color: #090909
 osd.hilight.bg: Solid Sunken
-osd.hilight.bg.color: #b00020
+osd.hilight.bg.color: #262626
 osd.unhilight.bg: Solid Flat
-osd.unhilight.bg.color: #000000
+osd.unhilight.bg.color: #090909
