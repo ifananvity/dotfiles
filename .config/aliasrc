@@ -7,7 +7,7 @@ alias ~="cd ~" \
 	p="sudo pacman" \
 	g="git" \
 	gs="git status" \
-	gc="git commit -m" \
+	gc="git commit -m "$1"" \
 	ls="ls -lht --color=auto --group-directories-first" \
 	lsa="ls -alht --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
@@ -21,6 +21,5 @@ alias ~="cd ~" \
 # v="$EDITOR" \
 # x="sxiv -ft *" \
 # sdn="sudo shutdown -h now" \
-# ls="ls -hN --color=auto --group-directories-first" \
 # yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
 # lsp="pacman -Qett --color=always | less" \
