@@ -1,6 +1,7 @@
 #!/bin/bash
 # runs when starting a new terminal session
 
+stty -ixon # disable ctrl-s and ctrl-q.
 shopt -s autocd # cd into directory merely by typing the directory name
 HISTSIZE= HISTFILESIZE= # infinite history
 
