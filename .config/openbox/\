@@ -41,7 +41,6 @@
 	
 				</action>	
 			</item>
-			<separator/>
 			<item label="Edit rc.xml">
 				<action name="Execute">
 					<execute>urxvt -e sh -c "vim $HOME/.config/openbox/rc.xml"</execute>
@@ -58,8 +57,6 @@
 				</action>	
 			</item>
 		</menu>
-
-		<separator/>
 
 		<item label="Log out">
 			<action name="Execute">

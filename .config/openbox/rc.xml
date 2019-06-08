@@ -327,9 +327,9 @@
 			<action name="Execute">
 				<startupnotify>
 					<enabled>true</enabled>
-					<name>PCManFM</name>
+					<name>Ranger</name>
 				</startupnotify>
-				<command>pcmanfm</command>
+				<command>urxvt -e sh -c "ranger"</command>
 			</action>
 		</keybind>
 		<keybind key="W-t">			<!-- Open terminal -->
