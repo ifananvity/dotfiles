@@ -362,6 +362,16 @@
 				<command>pulsemixer --change-volume -5 --max-volume 100</command>
 			</action>
 		</keybind>
+		<keybind key="XF86MonBrightnessUp">
+			<action name="Execute">
+				<command>setbrightness + 5</command>
+			</action>
+		</keybind>
+		<keybind key="XF86MonBrightnessDown">
+			<action name="Execute">
+				<command>setbrightness - 5</command>
+			</action>
+		</keybind>
 		<keybind key="W-F12">
 			<action name="Reconfigure"/>
 		</keybind>
