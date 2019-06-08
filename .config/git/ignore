@@ -1,0 +1,14 @@
+# user directories
+Documents
+Downloads
+Media
+Projects
+
+.mozilla
+.cache
+
+.esd_auth
+.viminfo
+.bash_history
+.lesshst
+.Xauthority
