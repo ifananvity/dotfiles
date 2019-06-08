@@ -208,7 +208,7 @@
 		<keybind key="A-F4">		<!-- Close window -->
 			<action name="Close"/>
 		</keybind>
-		<keybind key="A-q">			<!-- ALSO Closes window -->
+		<keybind key="C-q">			<!-- ALSO Closes window -->
 			<action name="Close"/>
 		</keybind>
 		<keybind key="A-F11">		<!-- Fullscreen -->
@@ -323,13 +323,22 @@
 		</keybind>
 
 		<!-- Keybindings for running applications -->
-		<keybind key="W-e">			<!-- Open file manager-->
+		<keybind key="W-e">			<!-- Open file manager -->
 			<action name="Execute">
 				<startupnotify>
 					<enabled>true</enabled>
 					<name>Ranger</name>
 				</startupnotify>
 				<command>urxvt -e sh -c "ranger"</command>
+			</action>
+		</keybind>
+		<keybind key="W-f">			<!-- Open firefox -->
+			<action name="Execute">
+				<startupnotify>
+					<enabled>true</enabled>
+					<name>Firefox</name>
+				</startupnotify>
+				<command>firefox</command>
 			</action>
 		</keybind>
 		<keybind key="W-t">			<!-- Open terminal -->
@@ -342,7 +351,17 @@
 			</action>
 		</keybind>
 
-		<!-- Reconfigure Openbox -->
+		<!-- Other -->
+		<keybind key="XF86AudioRaiseVolume">
+			<action name="Execute">
+				<command>pulsemixer --change-volume +5 --max-volume 100</command>
+			</action>
+		</keybind>
+		<keybind key="XF86AudioLowerVolume">
+			<action name="Execute">
+				<command>pulsemixer --change-volume -5 --max-volume 100</command>
+			</action>
+		</keybind>
 		<keybind key="W-F12">
 			<action name="Reconfigure"/>
 		</keybind>
