@@ -5,6 +5,7 @@ alias ~="cd ~" \
 	...="cd ../../" \
 	....="cd ../../../" \
 	p="sudo pacman" \
+	r="ranger" \
 	g="git" \
 	gs="git status" \
 	gc="git commit -m "$1"" \
