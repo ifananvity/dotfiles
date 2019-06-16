@@ -12,10 +12,7 @@ alias 	~="cd ~" \
 	r="ranger" \
 	g="git" \
 	gs="git status -sb --untracked-files=no" \
-	gsu='git status -s | sed -e "/^\sD/d; /^\s*M/d; s/??/$(tput setaf 1)??$(tput sgr0)/"' \
-	gc="git commit -m" \
-	gp="git push" \
-	gd="git diff" \
+	gsu="git status -sb" \
 	load="xrdb -load ~/.Xresources" \
 	hist="history | grep " \
 	cmd="function _cmd() { pacman -Ql \$1 | sed -n -e 's/.*\/bin\///p' | tail -n +2; }; _cmd" \
