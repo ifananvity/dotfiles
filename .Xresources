@@ -1,9 +1,21 @@
+!General
 URxvt.font: xft:monospace:regular:size=10
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
-!Theme One
-*background: rgb:00/00/00
-*foreground: rgb:a8/a8/a8
+URxvt.saveLines: 2000
+URxvt.cursorColor: white
+URxvt.internalBorder: 5
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.depth: 32
+URxvt.title: Terminal
+URxvt.cursorBlink: true
+
+!Color scheme
+URxvt.background: [95]#000000
+URxvt.foreground: #cccccc
+
 *color0:     rgb:00/00/00
 *color1:     rgb:a8/00/00
 *color2:     rgb:00/a8/00

@@ -1,4 +1,14 @@
 #!/bin/sh
-# autostart programs
+# run programs at the beginning of X session, before WM starts
 
+xset r rate 300 50 &
+unclutter --timeout 3 &
+redshift &
+compton &
 tint2 &
+urxvtd -q -o &
+[ -z "$(pgrep transmission)" ] && transmission-daemon --no-auth &
+
+# for some reason, using urxvtc doesn't let screensaver automatically exit on mouseover, keypress still work though
+xset s 300 ; xss-lock -n "urxvt -name screensaver -bg [100]#000000 -e sh -c cmatrix\ -Ba" -q -- slock &
+#xset s 300 ; xss-lock -n "urxvt -name screensaver -bg [100]#000000 -e sh -c pipes\ -f\ 40" -q -- slock &

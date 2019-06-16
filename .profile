@@ -1,14 +1,23 @@
 #!/bin/sh
-# profile file. runs on login
+# initialization file, executed on login shells
 
 # environment variables
-#export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export PATH="$PATH:$HOME/.local/bin/"
-export TERMINAL="urxvt"
-export EDITOR="vim"
+export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export TERMINAL="urxvtc"
+export EDITOR="nvim"
 export FILE_MANAGER="ranger"
 export BROWSER="firefox"
+export QT_SCALE_FACTOR="1.1"
 
-[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+# colorize man pages
+export LESS_TERMCAP_mb=$(printf '\e[01;31m')
+export LESS_TERMCAP_md=$(printf '\e[01;31m')
+export LESS_TERMCAP_me=$(printf '\e[0m')
+export LESS_TERMCAP_se=$(printf '\e[0m')
+export LESS_TERMCAP_so=$(printf '\e[01;44;33m')
+export LESS_TERMCAP_ue=$(printf '\e[0m')
+export LESS_TERMCAP_us=$(printf '\e[01;32m')
 
-[[ ! $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+[ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+
+[ "$(tty)" = "/dev/tty1" ] && exec startx
