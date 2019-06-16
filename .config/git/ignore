@@ -6,9 +6,10 @@ Projects
 
 .mozilla
 .cache
+.xdg_menu_cache
+.local/share
 
 .esd_auth
-.viminfo
 .bash_history
 .lesshst
 .Xauthority

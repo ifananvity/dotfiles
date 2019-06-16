@@ -1,26 +1,55 @@
 #!/bin/sh
-
-alias ~="cd ~" \
+# shorthands for common commands
+alias 	~="cd ~" \
 	..="cd ../" \
 	...="cd ../../" \
 	....="cd ../../../" \
-	p="sudo pacman" \
+	p="pacman" \
+	y="yay" \
+	v="nvim" \
+	sv="sudo nvim" \
+	x="chmod +x" \
 	r="ranger" \
 	g="git" \
-	gs="git status" \
+	gs="git status -sb --untracked-files=no" \
+	gsu='git status -s | sed -e "/^\sD/d; /^\s*M/d; s/??/$(tput setaf 1)??$(tput sgr0)/"' \
 	gc="git commit -m" \
-	ls="ls -lht --color=auto --group-directories-first" \
-	lsa="ls -alht --color=auto --group-directories-first" \
+	gp="git push" \
+	gd="git diff" \
+	load="xrdb -load ~/.Xresources" \
+	hist="history | grep " \
+	cmd="function _cmd() { pacman -Ql \$1 | sed -n -e 's/.*\/bin\///p' | tail -n +2; }; _cmd" \
+	lsi="expac --timefmt='%Y-%m-%d %T' '%l\t%n' \$(comm -23 <(pacman -Qeq | sort) <(pacman -Qqg base base-devel | sort)) | sort" \
+	lss="expac -H M '%011m\t%-20n\t%10d' \$(comm -23 <(pacman -Qqen | sort) <(pacman -Qqg base base-devel | sort)) | sort -n" \
+
+# shorthands for local scripts
+alias	mo="diskmount" \
+	om="diskunmount" \
+	pac="pacsrc" \
+
+# use these options as defaults
+alias	mv="mv -i" \
+	cp="cp -ri" \
+	rm="rm -rf" \
+	mkdir="mkdir -p" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-	mo="bash $HOME/.local/bin/mountall" \
-	om="bash $HOME/.local/bin/safelyremove" \
-	xterm="urxvt"
+	ls="ls -lht --color=auto --group-directories-first" \
+	lsa="ls -alht --color=auto --group-directories-first" \
+	ping="ping -c 3" \
+	obxprop="obxprop | grep '^_OB_APP'" \
+	dmesg="dmesg -H" \
+	date="date '+%A, %B %d, %Y [%T]'" \
+	df="df -h" \
+	du="du -h" \
+	du1="du -h --max-depth=1" \
+	ncdu="ncdu -re --color dark" \
+	lsblk="lsblk -o NAME,FSTYPE,LABEL,SIZE,FSUSE%,FSAVAIL,MOUNTPOINT" \
+	makepkg="makepkg -fsri" \
 
-# to be considered (from https://github.com/LukeSmithxyz/voidrice)
-# e="$EDITOR" \
-# v="$EDITOR" \
+# runs urxvt as one daemon
+alias	xterm="urxvtc" \
+	urxvt="urxvtc" \
+
 # x="sxiv -ft *" \
-# sdn="sudo shutdown -h now" \
 # yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
-# lsp="pacman -Qett --color=always | less" \
