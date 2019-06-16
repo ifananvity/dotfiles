@@ -1,0 +1,18 @@
+#!/bin/sh
+# updates mirrorlist by ranking for the fastest mirrors available
+# adjust the "country" field on the url (line 11)
+
+[ "$EUID" -ne 0 ] && echo "Root privileges is required" && exit
+
+curl -Os https://raw.githubusercontent.com/ifananvity/arch-installer/master/lib/rankmirrors.sh
+chmod +x rankmirrors.sh
+
+# fetch and ranks a live mirrorlist
+curl -s "https://www.archlinux.org/mirrorlist/?country=ID&country=SG&protocol=https&protocol=http&ip_version=4&use_mirror_status=on" | \
+sed -e "s/^#Server/Server/g; /^#/d" | \
+./rankmirrors.sh -n 6 - > /etc/pacman.d/mirrorlist
+
+rm -f rankmirrors.sh
+
+echo "/etc/pacman.d/mirrorlist has been updated:"
+cat /etc/pacman.d/mirrorlist
