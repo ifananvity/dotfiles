@@ -2,11 +2,11 @@
 # increase or decrease screen brightness, but restrict lowering under 5% (require xorg-xbacklight)
 # first argument accept + or -, second argument accept the amount of percentage to adjust
 
-if [ $1 = - ]; then
+if [ "$1" = - ]; then
 	if [ $(xbacklight -get | sed "s/\..*//") -gt 5 ]; then
-		xbacklight -dec $2 -time 0
+		xbacklight -dec "$2" -time 0
 		[ $(xbacklight -get | sed "s/\..*//") -le 5 ] && xbacklight -set 5 -time 0
 	fi
-elif [ $1 = + ]; then
-	xbacklight -inc $2 -time 0
+elif [ "$1" = + ]; then
+	xbacklight -inc "$2" -time 0
 fi
