@@ -71,7 +71,7 @@
 			<name>sans</name>
 			<size>10</size>
 			<!-- font size in points -->
-			<weight>normal</weight>
+			<weight>bold</weight>
 			<!-- 'bold' or 'normal' -->
 			<slant>normal</slant>
 			<!-- 'italic' or 'normal' -->
@@ -111,8 +111,8 @@
 		<number>2</number>
 		<firstdesk>1</firstdesk>
 		<names>
-			<name>Main</name>
-			<name>Work</name>
+			<name>1</name>
+			<name>2</name>
 			<!-- set names up here if you want to, like this: <name>desktop 1</name> <name>desktop 2</name> -->
 		</names>
 		<popupTime>875</popupTime>
@@ -121,13 +121,12 @@
 
 	<resize>
 		<drawContents>yes</drawContents>
-		<popupShow>Nonpixel</popupShow>
+		<popupShow>Always</popupShow>
 		<!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
 		<popupPosition>Center</popupPosition>
 		<!-- 'Center', 'Top', or 'Fixed' -->
 		<popupFixedPosition>
 			<!-- these are used if popupPosition is set to 'Fixed' -->
-
 			<x>10</x>
 			<!-- positive number for distance from left edge, negative number for distance from right edge, or 'Center' -->
 			<y>10</y>
@@ -166,41 +165,41 @@
 		<chainQuitKey>C-g</chainQuitKey>
 
 		<!-- Keybindings for desktop switching -->
-		<keybind key="C-A-Left">	<!-- Move to left desktop -->
+		<keybind key="C-A-h">	<!-- Move to left desktop -->
 			<action name="GoToDesktop">
 				<to>left</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="C-A-Right">	<!-- Move to right desktop -->
+		<keybind key="C-A-l">	<!-- Move to right desktop -->
 			<action name="GoToDesktop">
 				<to>right</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="S-A-Left">	<!-- Move to left desktop WITH focused window -->
+		<keybind key="S-A-h">	<!-- Move to left desktop WITH focused window -->
 			<action name="SendToDesktop">
 				<to>left</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="S-A-Right">	<!-- Move to right desktop WITH focused window -->
+		<keybind key="S-A-l">	<!-- Move to right desktop WITH focused window -->
 			<action name="SendToDesktop">
 				<to>right</to>
 				<wrap>no</wrap>
 			</action>
 		</keybind>
-		<keybind key="W-F1">		<!-- Move to desktop 1 -->
+		<keybind key="W-1">		<!-- Move to desktop 1 -->
 			<action name="GoToDesktop">
 				<to>1</to>
 			</action>
 		</keybind>
-		<keybind key="W-F2">		<!-- Move to desktop 2 -->
+		<keybind key="W-2">		<!-- Move to desktop 2 -->
 			<action name="GoToDesktop">
 				<to>2</to>
 			</action>
 		</keybind>
-		<keybind key="W-d">			<!-- Toggle show desktop -->
+		<keybind key="W-d">		<!-- Toggle show desktop -->
 			<action name="ToggleShowDesktop"/>
 		</keybind>
 
@@ -208,10 +207,13 @@
 		<keybind key="A-F4">		<!-- Close window -->
 			<action name="Close"/>
 		</keybind>
-		<keybind key="C-q">			<!-- ALSO Closes window -->
+		<keybind key="A-q">		<!-- ALSO Closes window -->
 			<action name="Close"/>
 		</keybind>
-		<keybind key="A-F11">		<!-- Fullscreen -->
+		<keybind key="C-q">		<!-- ALSO Closes window -->
+			<action name="Close"/>
+		</keybind>
+		<keybind key="F11">		<!-- Fullscreen -->
 			<action name="ToggleFullscreen"/>
 		</keybind>
 		<keybind key="A-space">		<!-- Show window menu -->
@@ -219,73 +221,84 @@
 				<menu>client-menu</menu>
 			</action>
 		</keybind>
-		<keybind key="W-Left">		<!-- View split on left -->
-			<action name="If">
-				<maximized>yes</maximized>
-				<then>
-					<action name="Unmaximize"/>
-					<action name="MoveResizeTo">
-						<x>+0</x>
-						<y>+0</y>
-						<width>50%</width>
-						<height>100%></height>
-					</action>
-				</then>
-				<else>
-					<action name="MoveResizeTo">
-						<x>+0</x>
-						<y>+0</y>
-						<width>50%</width>
-						<height>100%></height>
-					</action>
-				</else>
+		<keybind key="W-h">		<!-- View split on left -->
+			<action name="Unmaximize"/>
+			<action name="MoveResizeTo">
+				<x>+0</x>
+				<width>50%</width>
+			</action>
+			<action name="Maximize">
+				<direction>vertical</direction>
 			</action>
 		</keybind>
-		<keybind key="W-Right">		<!-- View split on right -->
-			<action name="If">
-				<maximized>yes</maximized>
-				<then>
-					<action name="Unmaximize"/>
-					<action name="MoveResizeTo">
-						<x>-0</x>
-						<y>+0</y>
-						<width>50%</width>
-						<height>100%></height>
-					</action>
-				</then>
-				<else>
-					<action name="MoveResizeTo">
-						<x>-0</x>
-						<y>+0</y>
-						<width>50%</width>
-						<height>100%></height>
-					</action>
-				</else>
+		<keybind key="W-l">		<!-- View split on right -->
+			<action name="Unmaximize"/>
+			<action name="MoveResizeTo">
+				<x>-0</x>
+				<width>50%</width>
+			</action>
+			<action name="Maximize">
+				<direction>vertical</direction>
 			</action>
 		</keybind>
-		<keybind key="W-Up">		<!-- Maximize window -->
+		<keybind key="W-k">		<!-- Maximize window -->
 			<action name="Maximize"/>
 		</keybind>
-		<keybind key="W-Down">		<!-- Unmaximize window NEED ATTENTION -->
+		<keybind key="W-j">		<!-- Unmaximize window NEED ATTENTION -->
 			<action name="If">
 				<query target="focus">
-					<maximized>yes</maximized>
+					<maximizedvertical>yes</maximizedvertical>
 				</query>
 				<then>
 					<action name="Unmaximize"/>
-				</then>
-				<else>
 					<action name="MoveResizeTo">
+						<width client="yes">60%</width>
+						<height client="yes">70%</height>
 						<x>center</x>
 						<y>center</y>
-						<width>75%</width>
-						<height>75%</height>
 					</action>
-				</else>
+				</then>
 			</action>
 		</keybind>
-		<keybind key="W-S-Down">	<!-- Minimize window -->
-			<action name="Iconify"/>
+		<keybind key="W-S-l">	<!-- Move window to the right incrementally -->
+			<action name="MoveRelative">
+				<x>20</x>
+			</action>
+		</keybind>
+		<keybind key="W-S-h">	<!-- Move window to the left incrementally -->
+			<action name="MoveRelative">
+				<x>-20</x>
+			</action>
+		</keybind>
+		<keybind key="W-S-j">	<!-- Move window to the top incrementally -->
+			<action name="MoveRelative">
+				<y>20</y>				
+			</action>
+		</keybind>
+		<keybind key="W-S-k">	<!-- Move window to the bottom incrementally -->
+			<action name="MoveRelative">
+				<y>-20</y>				
+			</action>
+		</keybind>
+		<keybind key="W-C-l">	<!-- Resize window to the right incrementally -->
+			<action name="ResizeRelative">
+				<right>20</right>
+			</action>
+		</keybind>
+		<keybind key="W-C-h">	<!-- Resize window to the left incrementally -->
+			<action name="ResizeRelative">
+				<right>-20</right>
+			</action>
+		</keybind>
+		<keybind key="W-C-j">	<!-- Resize window to the top incrementally -->
+			<action name="ResizeRelative">
+				<bottom>20</bottom>				
+			</action>
+		</keybind>
+		<keybind key="W-C-k">	<!-- Resize window to the bottom incrementally -->
+			<action name="ResizeRelative">
+				<bottom>-20</bottom>				
+			</action>
 		</keybind>
 
 		<!-- Keybindings for window switching -->
@@ -310,44 +323,30 @@
 			</action>
 		</keybind>
 
-		<!-- Keybindings for window switching with the arrow keys -->
-		<keybind key="W-S-Right">	<!-- Cycle focus to window on the right -->
-			<action name="DirectionalCycleWindows">
-				<direction>right</direction>
-			</action>
-		</keybind>
-		<keybind key="W-S-Left">	<!-- Cycle focus to window on the left -->
-			<action name="DirectionalCycleWindows">
-				<direction>left</direction>
-			</action>
-		</keybind>
-
 		<!-- Keybindings for running applications -->
-		<keybind key="W-e">			<!-- Open file manager -->
+		<keybind key="W-e">		<!-- Open file manager -->
 			<action name="Execute">
-				<startupnotify>
-					<enabled>true</enabled>
-					<name>Ranger</name>
-				</startupnotify>
-				<command>urxvt -e sh -c "ranger"</command>
+				<command>urxvtc -name ranger -e sh -c "$FILE_MANAGER"</command>
 			</action>
 		</keybind>
-		<keybind key="W-f">			<!-- Open firefox -->
+		<keybind key="W-f">		<!-- Open firefox -->
 			<action name="Execute">
-				<startupnotify>
-					<enabled>true</enabled>
-					<name>Firefox</name>
-				</startupnotify>
 				<command>firefox</command>
 			</action>
 		</keybind>
-		<keybind key="W-t">			<!-- Open terminal -->
+		<keybind key="W-t">		<!-- Open terminal -->
 			<action name="Execute">
-				<startupnotify>
-					<enabled>no</enabled>
-					<name>Terminal</name>
-				</startupnotify>
-				<command>urxvt</command>
+				<command>urxvtc</command>
+			</action>
+		</keybind>
+		<keybind key="W-i">		<!-- Open htop-->
+			<action name="Execute">
+				<command>urxvtc -title htop -e sh -c "htop"</command>
+			</action>
+		</keybind>
+		<keybind key="W-p">		<!-- Open pulsemixer -->
+			<action name="Execute">
+				<command>urxvtc -title pulsemixer -e sh -c "pulsemixer"</command>
 			</action>
 		</keybind>
 
@@ -745,7 +744,7 @@
 		<!-- if a press-release lasts longer than this setting (in milliseconds), the menu is hidden again -->
 		<middle>no</middle>
 		<!-- center submenus vertically about the parent entry -->
-		<submenuShowDelay>100</submenuShowDelay>
+		<submenuShowDelay>0</submenuShowDelay> <!-- was 100 -->
 		<!-- time to delay before showing a submenu after hovering over the parent entry. if this is a negative value, then the delay is infinite and the submenu will not be shown until it is clicked on -->
 		<submenuHideDelay>400</submenuHideDelay>
 		<!-- time to delay before hiding a submenu when selecting another entry in parent menu if this is a negative value, then the delay is infinite and the submenu will not be hidden until a different submenu is opened -->
@@ -758,7 +757,54 @@
 	<applications>
 		<application class="*">
 			<focus>yes</focus>
+			<size>
+				<width>60%</width>
+				<height>70%</height>
+			</size>
 		</application>
+
+		<application name="screensaver">
+			<fullscreen>yes</fullscreen>
+		</application>
+		
+		<application title="htop">
+			<maximized>yes</maximized>
+		</application>
+
+		<application title="pulsemixer">
+			<size>
+				<width>40%</width>
+				<height>25%</height>
+			</size>
+			<!--<layer>above</layer>-->
+		</application>	
+
+		<application groupname="firefox">
+			<!--<maximized>yes</maximized>-->
+			<decor>no</decor>
+		</application>
+		
+		<application name="edit">
+			<maximized>yes</maximized>
+		</application>
+
+		<!--
+		<application name="urxvt-kuake">
+			<decor>no</decor>
+			<position force="yes">
+				<x>center</x>
+				<y>0</y>
+			</position>
+			<size>
+				<height>80%</height>
+			</size>
+			<desktop>all</desktop>
+			<layer>above</layer>
+			<skip_pager>yes</skip_pager>
+			<skip_taskbar>yes</skip_taskbar>
+			<maximized>Horizontal</maximized>
+		</application>
+		-->
 
 		<!--
 		# this is an example with comments through out. use these to make your

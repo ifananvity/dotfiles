@@ -5,21 +5,21 @@
 
 	<menu id="root-menu" label="Openbox 3">
 
-		<separator label="APPS"/>
+		<separator label="Apps"/>
 
 		<item label="Terminal">
 			<action name="Execute">
-				<execute>urxvt</execute>
+				<execute>urxvtc</execute>
 			</action>
 		</item>
 
 		<item label="File Manager">
 			<action name="Execute">
-				<execute>urxvt -e sh -c "ranger"</execute>
+				<execute>urxvtc -name ranger -e sh -c "$FILE_MANAGER"</execute>
 			</action>
 		</item>
 
-		<item label="Firefox">
+		<item label="Web Browser">
 			<action name="Execute">
 				<execute>firefox</execute>
 			</action>
@@ -27,29 +27,29 @@
 
 		<menu id="pipe-menu" label="Other" execute="xdg_menu --format openbox3-pipe --root-menu /etc/xdg/menus/arch-applications.menu"/>
 
-		<separator label="SYSTEM"/>
+		<separator label="System"/>
 
-		<menu id="system-menu" label="Tools">
-			<item label="PulseMixer">
-				<action name="Execute">
-					<execute>urxvt -e sh -c "pulsemixer"</execute>
-				</action>	
-			</item>
-			<item label="Htop">
-				<action name="Execute">
-					<execute>urxvt -e sh -c "htop"</execute>
-	
-				</action>	
-			</item>
-			<separator/>
+		<item label="PulseMixer">
+			<action name="Execute">
+				<execute>urxvtc -title pulsemixer -e sh -c "pulsemixer"</execute>
+			</action>	
+		</item>
+
+		<item label="Htop">
+			<action name="Execute">
+				<execute>urxvtc -title htop -e sh -c "htop"</execute>
+			</action>	
+		</item>
+
+		<menu id="system-menu" label="Preferences">
 			<item label="Edit rc.xml">
 				<action name="Execute">
-					<execute>urxvt -e sh -c "vim $HOME/.config/openbox/rc.xml"</execute>
+					<execute>urxvtc -title "Edit rc.xml" -name edit -e sh -c "$EDITOR $HOME/.config/openbox/rc.xml"</execute>
 				</action>	
 			</item>
 			<item label="Edit menu.xml">
 				<action name="Execute">
-					<execute>urxvt -e sh -c "vim $HOME/.config/openbox/menu.xml"</execute>
+					<execute>urxvtc -title "Edit menu.xml" -name edit -e sh -c "$EDITOR $HOME/.config/openbox/menu.xml"</execute>
 				</action>	
 			</item>
 			<item label="Reconfigure Openbox">
