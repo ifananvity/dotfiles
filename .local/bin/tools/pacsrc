@@ -1,0 +1,15 @@
+#!/bin/sh
+# search a package from official repos or AUR, then opens the web page
+
+[ -z "$1" ] && exit # argument cannot be empty
+
+# check if package is available in official repos, otherwise ask if user wants to search in AUR instead
+if [ -z "$(pacman -Slq | sed -n "/^$1$/p")" ]; then
+	read -p "Package doesn't exist in official repos, search in AUR instead? [Y/n] " isAUR
+	if [ -z "$isAUR" ] || [ "$isAUR" = "Y" ]; then
+		firefox --new-tab aur.archlinux.org/packages/?SB=v\&SO=d\&PP=100\&K="$1" > /dev/null 2>&1 &
+		exit
+	fi
+fi
+
+firefox --new-tab archlinux.org/packages/?q="$1" > /dev/null 2>&1 &

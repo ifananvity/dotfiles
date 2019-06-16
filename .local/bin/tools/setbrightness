@@ -1,5 +1,5 @@
 #!/bin/sh
-# simple shell script to increase or decrease screen brightness, but restrict lowering under 5%
+# increase or decrease screen brightness, but restrict lowering under 5% (require xorg-xbacklight)
 # first argument accept + or -, second argument accept the amount of percentage to adjust
 
 if [ $1 = - ]; then
