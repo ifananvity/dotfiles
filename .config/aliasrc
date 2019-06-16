@@ -4,7 +4,7 @@ alias 	~="cd ~" \
 	..="cd ../" \
 	...="cd ../../" \
 	....="cd ../../../" \
-	p="pacman" \
+	p="sudo pacman" \
 	y="yay" \
 	v="nvim" \
 	sv="sudo nvim" \
@@ -22,7 +22,6 @@ alias 	~="cd ~" \
 # shorthands for local scripts
 alias	mo="diskmount" \
 	om="diskunmount" \
-	pac="pacsrc" \
 
 # use these options as defaults
 alias	mv="mv -i" \
@@ -39,12 +38,12 @@ alias	mv="mv -i" \
 	date="date '+%A, %B %d, %Y [%T]'" \
 	df="df -h" \
 	du="du -h" \
-	du1="du -h --max-depth=1" \
-	ncdu="ncdu -re --color dark" \
+	du1="du --max-depth=1" \
+	ncdu="ncdu -re" \
 	lsblk="lsblk -o NAME,FSTYPE,LABEL,SIZE,FSUSE%,FSAVAIL,MOUNTPOINT" \
 	makepkg="makepkg -fsri" \
 
-# runs urxvt as one daemon
+# runs urxvt from the daemon
 alias	xterm="urxvtc" \
 	urxvt="urxvtc" \
 
