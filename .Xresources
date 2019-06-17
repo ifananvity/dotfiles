@@ -1,19 +1,18 @@
 !General
-URxvt.font: xft:monospace:regular:size=10
+URxvt.font: xft:monospace:regular:size=10,xft:Symbola
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
-URxvt.saveLines: 2000
+URxvt.saveLines: 500 
 URxvt.cursorColor: white
 URxvt.internalBorder: 5
 URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.depth: 32
-URxvt.title: Terminal
 URxvt.cursorBlink: true
 
 !Color scheme
-URxvt.background: [95]#000000
+URxvt.background: [93]#000000
 URxvt.foreground: #cccccc
 
 *color0:     rgb:00/00/00
